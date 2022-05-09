@@ -8,3 +8,5 @@
  */
 
 rootProject.name = "pro360"
+
+include("auth-domain", "core", "pro360-application")

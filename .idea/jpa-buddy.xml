@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpaBuddyIdeaProjectConfig">
+    <option name="liquibaseDirectory" value="db\changelog\" />
+    <option name="defaultUnitInitialized" value="true" />
+    <option name="sourceModelValue" value="Auth" />
+    <option name="targetDbValue" value="9d205cbc-37b3-4ba2-bff5-998902ee6c56" />
+    <option name="snapshotDbValue" value="9d205cbc-37b3-4ba2-bff5-998902ee6c56" />
+  </component>
+</project>
