@@ -1,10 +1,10 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "2.6.7"
-    id("io.spring.dependency-management") version "1.0.11.RELEASE"
-    kotlin("jvm") version "1.6.21"
-    java
+    id("org.springframework.boot")
+    id("io.spring.dependency-management")
+    kotlin("jvm")
+    kotlin("plugin.spring")
 }
 
 group = "org.proptit"

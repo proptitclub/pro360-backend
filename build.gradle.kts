@@ -4,3 +4,17 @@
  * This is a general purpose Gradle build.
  * Learn more about Gradle by exploring our samples at https://docs.gradle.org/7.4/samples
  */
+
+plugins {
+    id("org.springframework.boot") version "2.6.6" apply false
+    id("io.spring.dependency-management") version "1.0.11.RELEASE" apply false
+    kotlin("jvm") version "1.6.10" apply false
+    kotlin("plugin.spring") version "1.6.10" apply false
+    kotlin("plugin.jpa") version "1.6.10" apply false
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
