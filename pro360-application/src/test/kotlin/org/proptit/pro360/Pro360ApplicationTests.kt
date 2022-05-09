@@ -1,10 +1,10 @@
-package org.proptit.auth.domain
+package org.proptit.pro360
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class AuthDomainApplicationTests {
+class Pro360ApplicationTests {
 
     @Test
     fun contextLoads() {

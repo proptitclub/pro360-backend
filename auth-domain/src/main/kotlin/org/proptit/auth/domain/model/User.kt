@@ -1,7 +1,9 @@
 package org.proptit.auth.domain.model
 
+import org.proptit.core.BaseModel
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
+import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.Table
 
@@ -14,9 +16,11 @@ import javax.persistence.Table
 @Entity
 @Table(name = "tb_user")
 data class User(
+    @Column(name = "username")
     var usr: String,
+    @Column(name = "password")
     var pwd: String
-) : UserDetails {
+) : UserDetails, BaseModel() {
 
     override fun getAuthorities() = listOf(SimpleGrantedAuthority("ROLE_USER")) //TODO : this is simple role, implement role system
 

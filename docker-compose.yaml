@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=pro360
+      - POSTGRES_USER=pro360
+      - POSTGRES_DB=pro360
+    volumes:
+      - ~/.pro360/postgres:/var/lib/postgresql/data
