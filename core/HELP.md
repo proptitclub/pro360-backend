@@ -1,1 +1,3 @@
 # Core Module
+
+#### This module contains base class, base exception, common utils,...
