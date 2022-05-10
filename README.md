@@ -4,13 +4,11 @@
 
 ## Introduction
 
----
 
 Pro360 Backend is a backend system for Pro360
 
 ## Get started
 
----
 
 ### Tech stack
 
@@ -35,7 +33,6 @@ Project includes module:
 
 ## Development
 
----
 
 ### Entity
 
