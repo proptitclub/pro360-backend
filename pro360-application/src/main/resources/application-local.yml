@@ -10,3 +10,6 @@ spring:
     user: ${PRO_DATASOURCE_USERNAME} # replace it by environment variable
     password: ${PRO_DATASOURCE_PASSWORD} # replace it by environment variable
     change-log: "classpath:db/changelog/db-changelog-master.xml"
+logging:
+  file:
+    path: ./logs
