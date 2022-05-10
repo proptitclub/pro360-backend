@@ -25,6 +25,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
     implementation(project(":${Module.Core}"))
+    implementation(Dependency.KotlinLogging)
 }
 
 tasks.withType<KotlinCompile> {

@@ -7,7 +7,7 @@ plugins {
     kotlin("plugin.spring")
 }
 
-group = "org.proptit"
+group = "org.proptit.pro360"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
@@ -22,9 +22,6 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-actuator")
-    implementation("org.springframework.boot:spring-boot-starter-security")
-    implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -32,16 +29,8 @@ dependencies {
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("org.springframework.security:spring-security-test")
 
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.postgresql:postgresql")
-    implementation("org.liquibase:liquibase-core")
-
-    implementation(project(":${Module.AuthDomain}"))
-    implementation(project(":${Module.Core}"))
-
-    implementation(Dependency.SpringBootAdminClient)
+    implementation(Dependency.SpringBootAdminServer)
 }
 
 tasks.withType<KotlinCompile> {

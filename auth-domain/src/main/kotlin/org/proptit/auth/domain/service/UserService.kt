@@ -1,5 +1,6 @@
 package org.proptit.auth.domain.service
 
+import mu.KotlinLogging
 import org.proptit.auth.domain.command.CreateNewUserCommand
 import org.proptit.auth.domain.exception.AuthException
 import org.proptit.auth.domain.model.User
@@ -12,9 +13,12 @@ import javax.transaction.Transactional
 @Service
 class UserService(val userRepo: UserRepository) : UserDetailsService {
 
+    private val logger = KotlinLogging.logger {  }
+
     // TODO This is example
     @Transactional
     fun createNewUser(createNewUserCommand: CreateNewUserCommand) {
+        logger.info("Create new user: ${createNewUserCommand.username}")
         if (createNewUserCommand.isValid()) {
             userRepo.save(createNewUserCommand.let { User(it.username, it.password) })
         } else {

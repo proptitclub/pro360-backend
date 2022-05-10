@@ -22,8 +22,9 @@ class SecurityConfig(
     companion object {
         val WHITE_LIST_API = arrayOf(
             "/",
-            "/sign-in",
-            "/sign-up"
+            "/v1/auth/sign-in",
+            "/v1/auth/sign-up",
+            "/actuator/**"
         )
     }
 
