@@ -6,13 +6,16 @@ import org.proptit.pro360.dto.request.SignUpRequest
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import javax.validation.Valid
 
-@RestController("/v1/auth")
+@RestController
+@RequestMapping("/v1/auth")
 class AuthController (val userService: UserService) {
 
     @PostMapping("/sign-up")
-    fun signUp(@RequestBody signUpRequest: SignUpRequest) : ResponseEntity<Any> {
+    fun signUp(@Valid @RequestBody signUpRequest: SignUpRequest) : ResponseEntity<Any> {
         userService.createNewUser(CreateNewUserCommand(signUpRequest.username, signUpRequest.password))
         return ResponseEntity.ok().build()
     }

@@ -2,10 +2,8 @@ package org.proptit.pro360.security
 
 import org.proptit.auth.domain.service.UserService
 import org.springframework.context.annotation.Bean
-import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.config.http.SessionCreationPolicy
 import org.springframework.web.cors.CorsConfiguration
@@ -13,19 +11,11 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource
 import org.springframework.web.filter.CorsFilter
 
 
-@EnableWebSecurity
-@Configuration
-class SecurityConfig(
+abstract class BaseSecurityConfig(
     val userService: UserService,
 ) : WebSecurityConfigurerAdapter() {
 
-    companion object {
-        val WHITE_LIST_API = arrayOf(
-            "/",
-            "/sign-in",
-            "/sign-up"
-        )
-    }
+    abstract fun whitelistApi(): Array<String>
 
     override fun configure(auth: AuthenticationManagerBuilder?) {
         super.configure(auth)
@@ -40,7 +30,7 @@ class SecurityConfig(
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and()
             .authorizeRequests()
-            .antMatchers(*WHITE_LIST_API).permitAll()
+            .antMatchers(*whitelistApi()).permitAll()
             .anyRequest().authenticated()
             .and()
             .csrf().disable()
@@ -48,7 +38,7 @@ class SecurityConfig(
     }
 
     @Bean
-    fun corsFilter(): CorsFilter {
+    open fun corsFilter(): CorsFilter {
         val source = UrlBasedCorsConfigurationSource()
         val config = CorsConfiguration()
         config.allowCredentials = true

@@ -1,0 +1,15 @@
+server:
+  port: ${PRO_PORT}
+
+spring:
+  datasource:
+    url: jdbc:postgresql://${PRO_DATASOURCE_HOST}:${PRO_DATASOURCE_PORT}/${PRO_DATABASE_NAME}
+    username: ${PRO_DATASOURCE_USERNAME}
+    password: ${PRO_DATASOURCE_PASSWORD}
+  liquibase:
+    user: ${PRO_DATASOURCE_USERNAME} # replace it by environment variable
+    password: ${PRO_DATASOURCE_PASSWORD} # replace it by environment variable
+    change-log: "classpath:db/changelog/db-changelog-master.xml"
+logging:
+  file:
+    path: ./logs

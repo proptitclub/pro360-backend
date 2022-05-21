@@ -9,4 +9,4 @@
 
 rootProject.name = "pro360"
 
-include("auth-domain", "core", "pro360-application")
+include("auth-domain", "core", "pro360-application", "admin-dashboard")
